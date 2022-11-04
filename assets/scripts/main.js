@@ -24,6 +24,10 @@ function getRecipesFromStorage() {
   // A9. TODO - Complete the functionality as described in this function
   //           header. It is possible in only a single line, but should
   //           be no more than a few lines.
+
+  let recipes = JSON.parse(localStorage.getItem('recipes'));
+  //console.log(recipes);
+  return recipes;
 }
 
 /**
@@ -35,10 +39,21 @@ function getRecipesFromStorage() {
  */
 function addRecipesToDocument(recipes) {
   // A10. TODO - Get a reference to the <main> element
+  let mainElmt = document.getElementsByTagName("main");
+    
   // A11. TODO - Loop through each of the recipes in the passed in array,
   //            create a <recipe-card> element for each one, and populate
   //            each <recipe-card> with that recipe data using element.data = ...
   //            Append each element to <main>
+  console.log("A11. TODO - Loop through each of the recipes in the passed in array");
+
+  for (let i = 0; i < recipes.length; i++) 
+  {
+    //console.log(recipes[i]);
+    const recipeCardElmt = document.createElement("recipe-card");
+    recipeCardElmt.data = recipes[i];
+    //mainElmt.item.appendChild(recipeCardElmt);
+  }
 }
 
 /**
@@ -51,6 +66,7 @@ function saveRecipesToStorage(recipes) {
   // B1. TODO - Complete the functionality as described in this function
   //            header. It is possible in only a single line, but should
   //            be no more than a few lines.
+  console.log("B1. TODO - Complete the functionality as described in this function");
 }
 
 /**
@@ -60,9 +76,11 @@ function saveRecipesToStorage(recipes) {
 function initFormHandler() {
 
   // B2. TODO - Get a reference to the <form> element
+  console.log("B2. TODO - Get a reference to the <form> element");
   
   // B3. TODO - Add an event listener for the 'submit' event, which fires when the
   //            submit button is clicked
+  console.log("B3. TODO - Add an event listener for the 'submit' event, which fires when the");
 
   // Steps B4-B9 will occur inside the event listener from step B3
   // B4. TODO - Create a new FormData object from the <form> element reference above
