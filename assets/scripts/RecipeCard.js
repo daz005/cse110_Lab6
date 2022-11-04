@@ -129,9 +129,17 @@ class RecipeCard extends HTMLElement
     if (!data) return;
 
     // A6. TODO - Select the <article> we added to the Shadow DOM in the 
- 
-    let articleElmt = this.shadowRoot.children.item(1);
-    //console.log(articleElmt);
+    let articleElmt = null;
+    for (let i=0; i < this.shadowRoot.children.length; i++)
+    {
+      //console.log(this.shadowRoot.children.item(i).tagName);
+      if (this.shadowRoot.children.item(i).tagName == "ARTICLE")
+      {
+         articleElmt = this.shadowRoot.children.item(i);
+         break;
+      }
+    }
+    if (!articleElmt) return;
 
     // A7. TODO - Set the contents of the <article> with the <article> template given in
     //           cardTemplate.html and the data passed in (You should only have one <article>,
