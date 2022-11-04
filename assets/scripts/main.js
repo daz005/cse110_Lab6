@@ -39,8 +39,24 @@ function getRecipesFromStorage() {
  */
 function addRecipesToDocument(recipes) {
   // A10. TODO - Get a reference to the <main> element
-  let mainElmt = document.getElementsByTagName("main");
-    
+  
+  let mainElmt = null;
+  for (let i=0; i < document.body.children.length; i++)
+  {
+    console.log(document.body.children.item(i).tagName);
+    if (document.body.children.item(i).tagName == "MAIN")
+    {
+      mainElmt = document.body.children.item(i);
+      break;
+    }
+  }  
+
+  if(!mainElmt)
+  {
+    console.log("no Main tag!!!");
+    return;
+  }
+
   // A11. TODO - Loop through each of the recipes in the passed in array,
   //            create a <recipe-card> element for each one, and populate
   //            each <recipe-card> with that recipe data using element.data = ...
@@ -52,7 +68,7 @@ function addRecipesToDocument(recipes) {
     //console.log(recipes[i]);
     const recipeCardElmt = document.createElement("recipe-card");
     recipeCardElmt.data = recipes[i];
-    //mainElmt.item.appendChild(recipeCardElmt);
+    mainElmt.append(recipeCardElmt);
   }
 }
 
