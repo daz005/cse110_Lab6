@@ -132,7 +132,6 @@ class RecipeCard extends HTMLElement
     let articleElmt = null;
     for (let i=0; i < this.shadowRoot.children.length; i++)
     {
-      //console.log(this.shadowRoot.children.item(i).tagName);
       if (this.shadowRoot.children.item(i).tagName == "ARTICLE")
       {
          articleElmt = this.shadowRoot.children.item(i);
@@ -146,7 +145,6 @@ class RecipeCard extends HTMLElement
     //           do not nest an <article> inside another <article>). You should use Template
     //           literals (tempalte strings) and element.innerHTML for this.
 
-    //console.log(data.imgSrc);
     let elmnt_img = document.createElement("img");
     elmnt_img.src=data.imgSrc;
     elmnt_img.alt=data.imgAlt;
@@ -168,8 +166,37 @@ class RecipeCard extends HTMLElement
     elmnt_div_span_1.innerText=data.rating;
     elmnt_div.appendChild(elmnt_div_span_1);
     let elmnt_div_img = document.createElement("img");
-    elmnt_div_img.src="./assets/images/icons/5-star.svg";
-    elmnt_div_img.alt="5 stars";
+    if (data.rating == 5 )
+    {
+      elmnt_div_img.src="./assets/images/icons/5-star.svg";
+      elmnt_div_img.alt="5 stars";
+    }
+    else if (data.rating == 4 )
+    {
+      elmnt_div_img.src="./assets/images/icons/4-star.svg";
+      elmnt_div_img.alt="4 stars";
+    }
+    else if (data.rating == 3 )
+    {
+      elmnt_div_img.src="./assets/images/icons/3-star.svg";
+      elmnt_div_img.alt="3 stars";
+    }
+    else if (data.rating == 2 )
+    {
+      elmnt_div_img.src="./assets/images/icons/2-star.svg";
+      elmnt_div_img.alt="2 stars";
+    }
+    else if (data.rating == 1 )
+    {
+      elmnt_div_img.src="./assets/images/icons/1-star.svg";
+      elmnt_div_img.alt="1 stars";
+    }
+    else //if (data.rating == 0 )
+    {
+      elmnt_div_img.src="./assets/images/icons/0-star.svg";
+      elmnt_div_img.alt="0 stars";
+    }
+
     elmnt_div.appendChild(elmnt_div_img);
     let elmnt_div_span_2 = document.createElement("span");
     elmnt_div_span_2.innerText=data.numRatings;
@@ -188,8 +215,6 @@ class RecipeCard extends HTMLElement
     articleElmt.append(elmnt_div);
     articleElmt.append(elmnt_time);
     articleElmt.append(elmnt_p3);
-
-    console.log(articleElmt);
   }
 }
 
